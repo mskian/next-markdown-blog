@@ -11,7 +11,7 @@
 - React + Next JS
 - Bulma CSS
 - Power Packed with React and Next Modules
-- Next JS `getInitialProps`
+- Next JS `getStaticProps`
 - React Markdown
 
 ## Markdown Content 🍪
