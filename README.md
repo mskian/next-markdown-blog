@@ -2,7 +2,7 @@
 
 ![build-test](https://github.com/mskian/next-markdown-blog/workflows/build-test/badge.svg)  
 
-படித்தால் பிடித்தது - Collect My Favourite Tamil kavithai and Tamil Quotes Build using Next JS and Markdown
+படித்தால் பிடித்தது - Collect My Favourite Tamil kavithai and Tamil Quotes Build using Next JS and Markdown.
 
 ⚛ React + Next JS | 📦 API Routing | ⚡ SSG | 🌩 Vercel | 📦 Markdown
 
@@ -40,6 +40,24 @@ yarn dev
 
 ```sh
 yarn build
+```
+
+- Format the Code
+
+```sh
+yarn format
+```
+
+- Create New Post
+
+```sh
+yarn newpost
+```
+
+- Static Build
+
+```sh
+yarn static
 ```
 
 - Test the production Build on Localhost

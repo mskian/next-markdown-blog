@@ -1,7 +1,7 @@
 ---
 title: "உண்மை கசக்கும்"
 description: "வார்த்தைகளுக்கும் சுவை உண்டு."
-date: 2021-02-11 22:28:22
+author: "santhosh"
 slug: tamil-post-3
 ---
 

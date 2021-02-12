@@ -1,20 +1,17 @@
 import Head from "next/head"
 import matter from "gray-matter"
 import ReactMarkdown from "react-markdown"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import Link from "next/link"
 
-const CodeBlock = ({ language, value }) => {
-  return (
-    <SyntaxHighlighter showLineNumbers={true} language={language}>
-      {value}
-    </SyntaxHighlighter>
-  )
-}
+export default function BlogPost({
+  blogurl,
+  blogog,
+  frontmatter,
+  markdownBody,
+}) {
+  //if (!frontmatter) return <></>
 
-const Blog = ({ content, data }) => {
-  const frontmatter = data
-  const siteurl = "https://kavithai.santhoshveer.com/" + frontmatter.slug + "/"
+  const siteurl = blogurl + frontmatter.slug + "/"
 
   return (
     <section className="section">
@@ -34,10 +31,7 @@ const Blog = ({ content, data }) => {
         <meta property="og:site_name" content={frontmatter.title} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={frontmatter.description} />
-        <meta
-          property="og:image"
-          content="https://kavithai.santhoshveer.com/sankavithai.png"
-        />
+        <meta property="og:image" content={blogog} />
         <meta
           property="article:publisher"
           content="https://www.facebook.com/santhoshveercom"
@@ -45,10 +39,7 @@ const Blog = ({ content, data }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={frontmatter.title} />
         <meta name="twitter:description" content={frontmatter.description} />
-        <meta
-          name="twitter:image"
-          content="https://kavithai.santhoshveer.com/sankavithai.png"
-        />
+        <meta name="twitter:image" content={blogog} />
         <meta name="twitter:site" content="@santhoshveerece" />
         <link rel="canonical" href={siteurl} />
         <meta name="twitter:url" content={siteurl} />
@@ -67,11 +58,7 @@ const Blog = ({ content, data }) => {
             <h1>{frontmatter.title}</h1>
             <hr />
             <p>{frontmatter.content}</p>
-            <ReactMarkdown
-              escapeHtml={true}
-              source={content}
-              renderers={{ code: CodeBlock }}
-            />
+            <ReactMarkdown escapeHtml={true} source={markdownBody} />
             <br />
             <Link href="/">
               <a>🏠 Back to Home</a>
@@ -84,11 +71,38 @@ const Blog = ({ content, data }) => {
   )
 }
 
-export default Blog
+export async function getStaticProps({ ...ctx }) {
+  const { blog } = ctx.params
 
-Blog.getInitialProps = async context => {
-  const { blog } = context.query
   const content = await import(`../content/${blog}.md`)
+  const siteData = await import(`../config.json`)
   const data = matter(content.default)
-  return { ...data }
+
+  return {
+    props: {
+      blogurl: siteData.siteurl,
+      blogog: siteData.ogimage,
+      frontmatter: data.data,
+      markdownBody: data.content,
+    },
+  }
+}
+
+export async function getStaticPaths() {
+  const blogSlugs = (context => {
+    const keys = context.keys()
+    const data = keys.map((key, index) => {
+      let slug = key.replace(/^.*[\\\/]/, "").slice(0, -3)
+
+      return slug
+    })
+    return data
+  })(require.context("../content", true, /\.md$/))
+
+  const paths = blogSlugs.map(slug => `/${slug}`)
+
+  return {
+    paths,
+    fallback: false,
+  }
 }

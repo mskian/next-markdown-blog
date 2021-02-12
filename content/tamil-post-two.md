@@ -1,7 +1,7 @@
 ---
 title: "எனை ரசிக்க நினைத்தால்"
 description: "எனை ரசிக்க நினைத்தால் நீ முந்தி கொ(ல்)ள்கிறாய்."
-date: 2021-02-11 19:45:44
+author: "santhosh"
 slug: tamil-post-two
 ---
 

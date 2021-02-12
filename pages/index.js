@@ -3,7 +3,7 @@ import Head from "next/head"
 import matter from "gray-matter"
 import Link from "next/link"
 
-const Index = ({ data, title, description, siteurl }) => {
+const Index = ({ data, title, description, siteurl, siteog }) => {
   const RealData = data.map(blog => matter(blog))
   const ListItems = RealData.map(listItem => listItem.data)
 
@@ -25,10 +25,7 @@ const Index = ({ data, title, description, siteurl }) => {
         <meta property="og:site_name" content={title} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={description} />
-        <meta
-          property="og:image"
-          content="https://kavithai.santhoshveer.com/sankavithai.png"
-        />
+        <meta property="og:image" content={siteog} />
         <meta
           property="article:publisher"
           content="https://www.facebook.com/santhoshveercom"
@@ -36,10 +33,7 @@ const Index = ({ data, title, description, siteurl }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta
-          name="twitter:image"
-          content="https://kavithai.santhoshveer.com/sankavithai.png"
-        />
+        <meta name="twitter:image" content={siteog} />
         <meta name="twitter:site" content="@santhoshveerece" />
         <link rel="canonical" href={siteurl} />
         <meta name="twitter:url" content={siteurl} />
@@ -102,6 +96,7 @@ export async function getStaticProps() {
       title: siteData.default.title,
       description: siteData.default.description,
       siteurl: siteData.default.siteurl,
+      siteog: siteData.ogimage,
     },
   }
 }
