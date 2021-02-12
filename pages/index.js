@@ -49,8 +49,8 @@ const Index = ({ data, title, description, siteurl, siteog }) => {
         <div className="columns is-centered">
           <div className="column is-half">
             <br />
-            <h1 className="title is-4 has-text-warning has-text-centered">
-              படித்தால் பிடித்தது 🍔{" "}
+            <h1 className="title is-5 has-text-warning has-text-centered">
+              படித்தால் பிடித்தது 😊
             </h1>
             <br />
             <div>

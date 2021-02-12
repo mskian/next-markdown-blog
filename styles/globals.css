@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;600;700;800&display=swap');
 body {
   font-size: 16px;
   background-color: #1d3557;
   height: 100vh;
   color: rgba(0, 0, 0, 0.6);
-  font-family: 'Mukta Malar', sans-serif;
-  font-weight: 500;
+  font-family: 'Baloo Thambi 2', cursive;
+  font-weight: 600;
   line-height: 1.618;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: grayscale;
@@ -79,7 +79,7 @@ a:hover {
 .read-random {
 	display: flex;
 	flex-grow: 0.3;
-  font-family: 'Mukta Malar', sans-serif;
+  font-family: 'Baloo Thambi 2', cursive;
 	font-weight: 600;
 	font-size: 14px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -147,7 +147,7 @@ footer p {
 p {
   letter-spacing: .03em;
   word-wrap: break-word;
-  font-family: 'Mukta Malar', sans-serif;
+  font-family: 'Baloo Thambi 2', cursive;
   font-size: 15px;
   color: #f9fdc5;
   -moz-osx-font-smoothing: grayscale;
@@ -177,7 +177,7 @@ button {
 .input {
   display: flex;
   flex-grow: 0.3;
-  font-family: 'Mukta Malar', sans-serif;
+  font-family: 'Baloo Thambi 2', cursive;
   font-weight: 500;
   font-size: 14px;
   border-radius: 32px;
@@ -208,7 +208,7 @@ button {
   -webkit-font-smoothing: antialiased !important;
   -moz-font-smoothing: antialiased !important;
   text-rendering: optimizelegibility !important;
-  font-family: 'Mukta Malar', sans-serif;
+  font-family: 'Baloo Thambi 2', cursive;
 }
 .button-link:hover {
 background: linear-gradient(#36a6e2,#29a0e0 60%,#29a0e0 90%,#4fb7f0);
@@ -269,7 +269,6 @@ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       font-size: 1.6rem;
   }
 }
-
 li {
 
     list-style: none;
@@ -278,7 +277,6 @@ li {
   padding-left: 1rem;
   text-indent: -0.7rem;
 }
-
 li::before {
   content: "➡ ";
 }
